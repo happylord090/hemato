@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            background-image: url('D:/Abdul/abdul/sem1/DBS/HematOncolinq/frontend/background.png');
+            background-size: cover;
+            font-size: 24px;
+        }
+        .logo {
+            width: 50px;
+            margin-right: 10px;
+        }
+        .website-name {
+            font-size: 2em;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 15px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="D:/Abdul/abdul/sem1/DBS/HematOncolinq/frontend/logo.png" alt="Logo" class="logo"> 
+        <h1 class="website-name">HematOncolinq</h1>
+    </header>
+    <form action="http://localhost:3000/submit_form" method="post">        
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age"><br>
+        <label for="contact">Contact:</label><br>
+        <input type="text" id="contact" name="contact"><br>
+        <label for="cancerType">Cancer Type:</label><br>
+        <input type="text" id="cancerType" name="cancerType"><br>
+        <label for="treatmentHistory">Treatment History:</label><br>
+        <input type="text" id="treatmentHistory" name="treatmentHistory"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Treatments</title>
+</head>
+<body>
+    <input type="text" id="filter" placeholder="Filter by Health Care Center">
+    <table id="treatments">
+        <tr>
+            <th>S.No</th>
+            <th>State</th>
+            <th>Health Care Center</th>
+            <th>Treatment Type</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th>Location</th>
+        </tr>
+    </table>
+    <script>
+        window.onload = async function() {
+            try {
+                const response = await fetch('http://localhost:3000/health_care_center');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch health care center data');
+                }
+                const data = await response.json();
+                console.log('Fetched data:', data);
+    
+                if (data.length === 0) {
+                    console.log('No data returned');
+                } else {
+                    const container = document.getElementById('treatments');
+                    data.forEach((row, index) => {
+                        console.log('Row data:', row); // Add this line
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td>${row.state}</td>
+                            <td>${row.health_care_center}</td>
+                            <td>${row.treatment_type}</td>
+                            <td>${row.contact_number}</td>
+                            <td>${row.email}</td>
+                            <td>${row.location}</td>
+                        `;
+                        container.appendChild(tr);
+                    });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+    </script>
+</body>
+</html>
